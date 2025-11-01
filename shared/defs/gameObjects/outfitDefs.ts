@@ -775,7 +775,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         lore: "For those that helped.",
         skinImg: {
             baseTint: 0xffffff,
-            baseSprite: "player-base-outfitGamerio.img",
+            baseSprite: "player-base-outfitZurvivContributr.img",
             handTint: 0x00c8ff,
             handSprite: "player-hands-02.img",
             footTint: 0x00c8ff,
@@ -785,7 +785,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         lootImg: {
             sprite: "loot-shirt-01.img",
-            tint: 0x5f5fd4,
+            tint: 0x00c8ff,
         },
     }),
     outfitGamerio: defineOutfitSkin("outfitBase", {
@@ -804,7 +804,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         lootImg: {
             sprite: "loot-shirt-01.img",
-            tint: 0xffffff,
+            tint: 0x5f5fd4,
         },
     }),
     outfitRoyalFortune: defineOutfitSkin("outfitBase", {
