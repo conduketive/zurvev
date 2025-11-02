@@ -766,7 +766,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
         lootImg: {
             sprite: "loot-shirt-01.img",
-            tint: 0x5f5fd4,
+            tint: 0x080808,
         },
     }),
     outfitZurvivContributr: defineOutfitSkin("outfitBase", {
@@ -776,25 +776,6 @@ const SkinDefs: Record<string, OutfitDef> = {
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitContributr.img",
-            handTint: 0x00c8ff,
-            handSprite: "player-hands-02.img",
-            footTint: 0x00c8ff,
-            footSprite: "player-feet-02.img",
-            backpackTint: 0x00c8ff,
-            backpackSprite: "player-circle-base-02.img",
-        },
-        lootImg: {
-            sprite: "loot-shirt-01.img",
-            tint: 0x00c8ff,
-        },
-    }),
-    outfitGamerio: defineOutfitSkin("outfitBase", {
-        name: "Gamerio",
-        rarity: Rarity.Mythic,
-        lore: "What namerio wishes to be.",
-        skinImg: {
-            baseTint: 0xffffff,
-            baseSprite: "player-base-outfitGamerio.img",
             handTint: 0x5f5fd4,
             handSprite: "player-hands-02.img",
             footTint: 0x5f5fd4,
@@ -805,6 +786,25 @@ const SkinDefs: Record<string, OutfitDef> = {
         lootImg: {
             sprite: "loot-shirt-01.img",
             tint: 0x5f5fd4,
+        },
+    }),
+    outfitGamerio: defineOutfitSkin("outfitBase", {
+        name: "Gamerio",
+        rarity: Rarity.Mythic,
+        lore: "What namerio wishes to be.",
+        skinImg: {
+            baseTint: 0xffffff,
+            baseSprite: "player-base-outfitGamerio.img",
+            handTint: 0x00c8ff,
+            handSprite: "player-hands-02.img",
+            footTint: 0x00c8ff,
+            footSprite: "player-feet-02.img",
+            backpackTint: 0x00c8ff,
+            backpackSprite: "player-circle-base-02.img",
+        },
+        lootImg: {
+            sprite: "loot-shirt-01.img",
+            tint: 0x00c8ff,
         },
     }),
     outfitRoyalFortune: defineOutfitSkin("outfitBase", {
