@@ -750,9 +750,9 @@ const SkinDefs: Record<string, OutfitDef> = {
         },
     }),
     outfitSGC: defineOutfitSkin("outfitBase", {
-        name: "Contributr",
+        name: "SGC",
         rarity: Rarity.Mythic,
-        lore: "For those that helped.",
+        lore: "For those that won.",
         skinImg: {
             baseTint: 0xffffff,
             baseSprite: "player-base-outfitSGC.img",
