@@ -813,9 +813,10 @@ export class Player extends BaseGameObject {
     startedSpectating: boolean = false;
 
     /**
-     * @HACK use to filter players when finding who to spectate since we want don't spectate themselves for the short bit we are alive
+     * @HACK used to filter players when finding who to spectate since we don't want a player spectate themselves for the short bit they are alive
      */
     joinedAsASpectator = false;
+
 
     private _spectating?: Player;
 
@@ -2612,13 +2613,13 @@ export class Player extends BaseGameObject {
             (p) =>
                 this != p &&
                 !p.disconnected &&
-                (this.game.modeManager.getPlayerAlivePlayersContext(this).length === 0 ||
+                this.joinedAsASpectator || (this.game.modeManager.getPlayerAlivePlayersContext(this).length === 0 ||
                     p.teamId == this.teamId),
         );
 
         let playerToSpec: Player | undefined;
         switch (true) {
-            case this.joinedAsASpectator:
+            case (this.joinedAsASpectator && !this.spectating):
                 playerToSpec = this.game.playerBarn.randomPlayer(this);
                 break;
             case spectateMsg.specBegin:
@@ -2651,6 +2652,7 @@ export class Player extends BaseGameObject {
                 );
                 break;
         }
+        
         this.spectating = playerToSpec;
     }
 
