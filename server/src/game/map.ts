@@ -27,6 +27,7 @@ import { Obstacle } from "./objects/obstacle";
 import type { Player } from "./objects/player";
 import { Structure } from "./objects/structure";
 import { RiverCreator } from "./riverCreator";
+import { returnJson } from "../utils/serverHelpers";
 
 // most of this logic is based on the `renderMapBuildingBounds` from client debugHelpers
 // which was found on BHA leak
@@ -956,32 +957,34 @@ export class GameMap {
     }
 
     genFromMapDef(type: string, count: number): void {
-        const noRivers = this.mapDef.mapGen.map.rivers.weights.length !== 0;
+        const noRivers = this.mapDef.mapGen.map.rivers.weights.length === 0;
 
         for (let i = 0; i < count; i++) {
             const def = MapObjectDefs[type];
-
+            if (noRivers) {
+                if ( 
+                    def.terrain?.river ||
+                    def.terrain?.riverShore ||
+                    def.terrain?.riverShore
+                ) return;
+            }
             if (def.terrain?.waterEdge) {
                 this.genOnWaterEdge(type);
             } else if (def.terrain?.river) {
-                if (noRivers) return;
                 this.genOnRiver(type);
             } else if (def.terrain?.bridge) {
-                if (noRivers) return;
                 this.genBridge(type);
             } else if (def.terrain?.lakeCenter) {
-                if (noRivers) return;
                 this.genOnLakeCenter(type);
             } else if (def.terrain?.grass) {
                 try {
                     this.genOnGrass(type);
                 } catch (_error) {
-                    console.error(`failed to generate ${type}`);
+                    console.debug(`failed to generate ${type}`);
                 }
             } else if (def.terrain?.beach) {
                 this.genOnBeach(type);
             } else if (def.terrain?.riverShore) {
-                if (noRivers) return;
                 this.genOnRiverShore(type);
             } else {
                 this.genOnGrass(type);
