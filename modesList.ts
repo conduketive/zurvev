@@ -21,6 +21,7 @@ const modes: Array<keyof typeof MapDefs> = [
     "local_main",
     "faction_potato",
     "faction_halloween",
+    "cobalt_woods",
     "comp_main",
     "comp_eu_main",
     "GG",

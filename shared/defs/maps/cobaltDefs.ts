@@ -1,5 +1,6 @@
 import { util } from "../../utils/util";
 import { v2 } from "../../utils/v2";
+import type { MapDef } from "../mapDefs";
 import { MapId } from "../types/misc";
 import { Main, type PartialMapDef } from "./baseDefs";
 
@@ -187,4 +188,4 @@ const mapDef: PartialMapDef = {
     },
 };
 
-export const Cobalt = util.mergeDeep({}, Main, mapDef);
+export const Cobalt = util.mergeDeep({}, Main, mapDef) as MapDef;

@@ -20,6 +20,7 @@ export enum MapId {
     Gamerio = 101,
     FactionPotato = 102,
     FactionHalloween = 103,
+    CobaltWoods = 104,
 
     // kong modes
     Inferno = 18,

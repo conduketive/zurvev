@@ -12,23 +12,6 @@ import { Config } from "../../config";
 import type { Player } from "../objects/player";
 import { GamePlugin, PlayerDamageEvent } from "../pluginManager";
 
-/**
- * Checks if an item is present in the player's loadout
- */
-export const isItemInLoadout = (
-    item: string,
-    category: string,
-    ownedItems?: Set<string>,
-) => {
-    if (ownedItems && !ownedItems.has(item)) return false;
-    if (!UnlockDefs.unlock_default.unlocks.includes(item)) return false;
-
-    const def = GameObjectDefs[item];
-    if (!def || def.type !== category) return false;
-
-    return true;
-};
-
 const BACKPACK_LEVEL = 3;
 export function onPlayerJoin(data: Player) {
     if (data.game.mapName !== "local_main") return;
@@ -118,17 +101,4 @@ export default class DeathMatchPlugin extends GamePlugin {
         this.on("playerJoin", onPlayerJoin);
         this.on("playerKill", onPlayerKill);
     }
-}
-
-const customReloadPercentage: Record<string, number> = {
-    sv98: 10,
-    awm: 0,
-    pkp: 30,
-    lasr_gun: 7,
-    lasr_gun_dual: 14,
-};
-function _calculateAmmoToGive(type: string, currAmmo: number, maxClip: number): number {
-    const amount = customReloadPercentage[type] ?? 50;
-    if (amount === 0) return currAmmo;
-    return Math.floor(Math.min(currAmmo + (maxClip * amount) / 100, maxClip));
 }

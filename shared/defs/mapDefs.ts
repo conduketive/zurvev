@@ -2,6 +2,7 @@ import type { Vec2 } from "../utils/v2";
 import { Main } from "./maps/baseDefs";
 import { Birthday } from "./maps/birthdayDefs";
 import { Cobalt } from "./maps/cobaltDefs";
+import { cobaltWoods } from "./maps/cobaltWoodsDefs";
 import { CompMain } from "./maps/comp/compBaseDefs";
 import { EuCompMain } from "./maps/comp/euCompBaseDefs";
 import { Desert } from "./maps/desertDefs";
@@ -73,6 +74,7 @@ export const MapDefs = {
     /* STRIP_FROM_PROD_CLIENT:END */
     faction_potato: FactionPotato,
     faction_halloween: FactionHalloween,
+    cobalt_woods: cobaltWoods,
     comp_main: CompMain,
 } satisfies Record<string, MapDef>;
 
