@@ -215,6 +215,7 @@ export const Main: MapDef = {
             { name: "flare_gun", count: 1, weight: 1 },
             { name: "colt45", count: 1, weight: 1 },
             { name: "45acp", count: 1, weight: 1 },
+            { name: "22lr", count: 1, weight: 1 },
             { name: "painkiller", count: 1, weight: 1 },
             { name: "m4a1", count: 1, weight: 1 },
             { name: "m249", count: 1, weight: 1 },
@@ -224,6 +225,7 @@ export const Main: MapDef = {
         tier_eye_stone: [
             { name: "vector45", count: 1, weight: 1 },
             { name: "45acp", count: 1, weight: 1 },
+            { name: "22lr", count: 1, weight: 1 },
             { name: "garand", count: 1, weight: 1 },
             { name: "strobe", count: 1, weight: 1 },
             { name: "healthkit", count: 1, weight: 1 },

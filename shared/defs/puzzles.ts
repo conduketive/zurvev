@@ -13,6 +13,7 @@ export const Puzzles: Record<string, string[]> = {
         "conch",
     ],
     bunker_chrys_01: ["ichi", "ni", "san", "shi"],
+    bunker_chrys_01pu: ["shi","san","ni","ichi"],
     saloon: ["red", "orange", "yellow", "green", "blue", "indigo", "violet"],
     club_01: ["1", "2", "3", "4"],
     club_02: ["1"],

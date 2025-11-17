@@ -1,3 +1,4 @@
+import { DeepPartial, util } from "../../utils/util";
 import type { Vec2 } from "../../utils/v2";
 
 export interface GunDef {
@@ -99,7 +100,9 @@ export interface GunDef {
     toMouseHit?: boolean;
     burstSounds?: number;
 }
-
+function extendedGunDef(baseType: string, params: DeepPartial<GunDef>): GunDef {
+    return util.mergeDeep({}, GunDefs[baseType], params);
+}
 export const GunDefs: Record<string, GunDef> = {
     mp5: {
         name: "MP5",
@@ -3418,27 +3421,28 @@ export const GunDefs: Record<string, GunDef> = {
         reloadTime: 8,
         fireDelay: 0.055,
         switchDelay: 0.9,
-        barrelLength: 6.6,
+        barrelLength: 4.8,
         barrelOffset: 0,
         recoilTime: 1e10,
         moveSpread: 2,
         shotSpread: 1,
         bulletCount: 1,
         bulletType: "bullet_m134",
-        headshotMult: 1,
-        speed: { equip: -1, attack: -4 },
+        headshotMult: 1.5,
+        speed: { equip: 0, attack: -5 },
         lootImg: {
             sprite: "loot-weapon-m134.img",
-            tint: 65280,
+            tint: 0xff00,
             border: "loot-circle-outer-01.img",
             borderTint: 0,
             scale: 0.3,
         },
         worldImg: {
             sprite: "gun-m134-01.img",
-            scale: { x: 0.8, y: 0.8 },
+            scale: { x: 0.65, y: 0.65 },
             tint: 0xffffff,
-            leftHandOffset: { x: 12.5, y: 0 },
+            gunOffset:{x:-0.45,y:0.1},
+            leftHandOffset: { x: 5, y: 0 },
             recoil: 1.33,
         },
         particle: {
@@ -3452,6 +3456,155 @@ export const GunDefs: Record<string, GunDef> = {
             pickup: "gun_pickup_01",
             empty: "empty_fire_02",
             deploy: "pkp_switch_01",
+        },
+    },
+    tec22: {
+        name: "Tec-22",
+        type: "gun",
+        quality: 0,
+        fireMode: "auto",
+        caseTiming: "shoot",
+        ammo: "22lr",
+        ammoSpawnCount: 90,
+        dualWieldType: "tec22_dual",
+        pistol: true,
+        maxClip: 30,
+        maxReload: 30,
+        extendedClip: 40,
+        extendedReload: 40,
+        reloadTime: 1.8,
+        fireDelay: 0.04,
+        switchDelay: 0.75,
+        barrelLength: 2.45,
+        barrelOffset: 0,
+        recoilTime: 1e10,
+        moveSpread: 10,
+        shotSpread: 9,
+        bulletCount: 1,
+        bulletType: "bullet_tec22",
+        headshotMult: 1.5,
+        speed: { equip: 0, attack: 0 },
+        lootImg: {
+            sprite: "loot-weapon-tec22.img",
+            tint: 0xff00,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.3,
+        },
+        worldImg: {
+            sprite: "gun-short-01.img",
+            scale: { x: 0.54, y: 0.49 },
+            tint: 0x6f6f6f,
+            leftHandOffset: { x: 0, y: 0 },
+            recoil: 1,
+        },
+        particle: { shellScale: 1, shellOffset: 0.35 },
+        sound: {
+            shoot: "mac10_01",
+            reload: "glock_reload_01",
+            pickup: "gun_pickup_01",
+            empty: "empty_fire_01",
+            deploy: "mac10_switch_01",
+        },
+    },
+    tec22_dual: {
+        name: "Dual Tec-22",
+        type: "gun",
+        quality: 0,
+        fireMode: "auto",
+        caseTiming: "shoot",
+        ammo: "22lr",
+        ammoSpawnCount: 120,
+        pistol: true,
+        isDual: true,
+        maxClip: 60,
+        maxReload: 60,
+        extendedClip: 80,
+        extendedReload: 80,
+        reloadTime: 4,
+        fireDelay: 0.02,
+        switchDelay: 0.75,
+        barrelLength: 2.45,
+        barrelOffset: 0,
+        dualOffset: 0.55,
+        recoilTime: 1e10,
+        moveSpread: 11,
+        shotSpread: 10,
+        bulletCount: 1,
+        bulletType: "bullet_tec22",
+        headshotMult: 1.5,
+        speed: { equip: 0, attack: 0 },
+        lootImg: {
+            sprite: "loot-weapon-tec22_dual.img",
+            tint: 0xff00,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.3,
+        },
+        worldImg: {
+            sprite: "gun-short-01.img",
+            scale: { x: 0.54, y: 0.49 },
+            tint: 0x6f6f6f,
+            leftHandOffset: { x: 0, y: 0 },
+            recoil: 1,
+        },
+        particle: { shellScale: 1, shellOffset: 0.35 },
+        sound: {
+            shoot: "mac10_01",
+            reload: "glock_reload_02",
+            pickup: "gun_pickup_01",
+            empty: "empty_fire_01",
+            deploy: "mac10_switch_01",
+        },
+    },
+    cbc22: {
+        name: "VSS",
+        type: "gun",
+        quality: 0,
+        fireMode: "single",
+        caseTiming: "shoot",
+        ammo: "22lr",
+        ammoSpawnCount: 40,
+        maxClip: 10,
+        maxReload: 1,
+        extendedClip: 15,
+        extendedReload: 15,
+        reloadTime: 0.75,
+        fireDelay: 0.75,
+        switchDelay: 0.4,
+        pullDelay: 0.35,
+        barrelLength: 3.15,
+        barrelOffset: 0,
+        recoilTime: 1e10,
+        moveSpread: 3,
+        shotSpread: 2,
+        bulletCount: 1,
+        bulletType: "bullet_cbc22",
+        headshotMult: 1.25,
+        speed: { equip: 0, attack: 0 },
+        lootImg: {
+            sprite: "loot-weapon-cbc22.img",
+            tint: 0xff00,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.3,
+        },
+        worldImg: {
+            sprite: "gun-long-01.img",
+            scale: { x: 0.5, y: 0.435 },
+            tint: 0x333333,
+            leftHandOffset: { x: 7, y: 0 },
+            recoil: 1.33,
+        },
+        particle: { shellScale: 1, shellOffset: 0.45 },
+        sound: {
+            shoot: "vss_01",
+            reload: "m870_reload_01",
+            cycle: "m870_cycle_01",
+            pull: "m870_pull_01",
+            pickup: "gun_pickup_01",
+            empty: "empty_fire_01",
+            deploy: "m870_cycle_01",
         },
     },
     // lasr_gun: {
@@ -3568,3 +3721,79 @@ export const GunDefs: Record<string, GunDef> = {
     //     },
     // },
 };
+GunDefs["og_m9"] = extendedGunDef("m9", {
+    lootImg: {
+        sprite: "loot-weapon-og-m9.img",
+    },
+    worldImg: {
+        recoil: 0,
+    },
+    dualWieldType: "og_m9_dual",
+});
+GunDefs["og_m9_dual"] = extendedGunDef("m9_dual", {
+    lootImg: {
+        sprite: "loot-weapon-og-m9-dual.img",
+    },
+    worldImg: {
+        recoil: 0,
+    },
+});
+GunDefs["og_ak47"] = extendedGunDef("ak47", {
+    lootImg: {
+        sprite: "loot-weapon-og-ak.img",
+    },
+    worldImg: {
+        sprite: "gun-long-01.img",
+        scale: { x: 0.5, y: 0.52 },
+        leftHandOffset: { x: 2.8, y: 0 },
+        recoil: 0,
+    },
+});
+GunDefs["og_m870"] = extendedGunDef("m870", {
+    lootImg: {
+        sprite: "loot-weapon-og-m870.img",
+    },
+    worldImg: {
+        sprite: "gun-long-01.img",
+        scale: { x: 0.5, y: 0.52 },
+        tint: 0x331a00,
+        leftHandOffset: { x: 2.8, y: 0 },
+        recoil: 0,
+    },
+});
+GunDefs["og_saiga"] = extendedGunDef("saiga", {
+    lootImg: {
+        sprite: "loot-weapon-og-saiga.img",
+    },
+    worldImg: {
+        sprite: "gun-long-01.img",
+        scale: { x: 0.5, y: 0.52 },
+        tint: 0x331a00,
+        leftHandOffset: { x: 2.8, y: 0 },
+        recoil: 0,
+    },
+});
+GunDefs["og_mosin"] = extendedGunDef("mosin", {
+    lootImg: {
+        sprite: "loot-weapon-og-mosin.img",
+    },
+    worldImg: {
+        sprite: "gun-long-01.img",
+        scale: { x: 0.5, y: 0.52 },
+        tint: 0x331a00,
+        leftHandOffset: { x: 2.8, y: 0 },
+        recoil: 0,
+    },
+});
+GunDefs["og_m39"] = extendedGunDef("m39", {
+    lootImg: {
+        sprite: "loot-weapon-og-m39.img",
+    },
+    worldImg: {
+        sprite: "gun-long-01.img",
+        scale: { x: 0.5, y: 0.52 },
+        tint: 0x333333,
+        leftHandOffset: { x: 2.8, y: 0 },
+        recoil: 0,
+    },
+});
