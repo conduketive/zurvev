@@ -8492,6 +8492,14 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             scale: 0.45,
         },
     }),
+    barrel_05: createBarrel({
+        explosion:"explosion_acid_barrel",
+        img: {
+            sprite: "map-barrel-05.img",
+            scale: 0.4,
+        },
+        loot: [],
+    }),
     propane_01: createBarrel({
         collision: collider.createCircle(v2.create(0, 0), 1.25),
         health: 50,
@@ -8595,6 +8603,10 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
     bush_01x: createBush({
         map: { color: 0x455d30 },
         img: { sprite: "map-bush-01x.img" },
+    } as unknown as Partial<ObstacleDef>),
+    bush_01pu: createBush({
+        img: { sprite: "map-bush-01pu.img" },
+        map: { color: 0x621c78 },
     } as unknown as Partial<ObstacleDef>),
     bush_02: createBush({ img: { residue: "map-bush-res-02.img" } }),
     bush_03: createBush({
@@ -9477,6 +9489,17 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
         map: { display: true, color: 0xcc0000 },
         terrain: { grass: true, beach: false },
         img: { sprite: "map-crate-30.img" },
+        sound: { explode: "crate_break_01" },
+    }),
+    crate_31: createCrate({
+        health: 140,
+        loot: [
+            tierLoot("tier_scout_crate",2,5),
+            autoLoot("soda", 1),
+        ],
+        map: { display: true, color: 0x39144d },
+        terrain: { grass: true, beach: false },
+        img: { sprite: "map-crate-31.img" },
         sound: { explode: "crate_break_01" },
     }),
     airdrop_crate_01: createAirdrop({
@@ -10749,6 +10772,10 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
     } as unknown as Partial<ObstacleDef>),
     tree_interior_01: createTree({ img: { zIdx: 200 } }),
     tree_01x: createTree({ img: { sprite: "map-tree-01x.img" } }),
+    tree_01pu: createTree({
+        img: { sprite: "map-tree-01pu.img" },
+        map: { display:true,color: 0x3b114e },
+    }),
     tree_02: createTree({
         health: 120,
         collision: collider.createCircle(v2.create(0, 0), 1.6),
@@ -10783,6 +10810,14 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
         map: { display: false },
         img: { tint: 0xb1b1b1 },
         loot: [tierLoot("tier_surviv", 2, 3), autoLoot("mosin", 1)],
+    }),
+    tree_03pu: createTree({
+        map: { display: false },
+        img: {
+            sprite: "map-tree-01pu.img",
+            tint: 0xb1b1b1,
+        },
+        loot: [tierLoot("tier_surviv", 4, 5), autoLoot("woodaxe_bloody", 2)],
     }),
     // savannah cache
     tree_03sv: createTree({
@@ -11650,6 +11685,213 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             },
         ],
     }),
+    greenhouse_02pu: createGreenhouse({
+        floor_images: [
+            {
+                sprite: "map-building-greenhouse-floor-02.img",
+                pos: v2.create(0, 10),
+                scale: 0.5,
+                alpha: 1,
+                tint: 0xffffff,
+                rot: 2,
+            },
+            {
+                sprite: "map-building-greenhouse-floor-02.img",
+                pos: v2.create(0, -10),
+                scale: 0.5,
+                alpha: 1,
+                tint: 0xffffff,
+            },
+            {
+                sprite: "map-building-porch-01.img",
+                pos: v2.create(0, 21),
+                scale: 0.5,
+                alpha: 1,
+                tint: 0xffffff,
+                rot: 0,
+            },
+            {
+                sprite: "map-building-porch-01.img",
+                pos: v2.create(0, -21),
+                scale: 0.5,
+                alpha: 1,
+                tint: 0xffffff,
+                rot: 2,
+            },
+        ],
+        ceiling_images: [
+            {
+                sprite: "map-building-greenhouse-ceiling-02.img",
+                scale: 1,
+                alpha: 1,
+                tint: 0xffffff,
+            },
+        ],
+        mapObjects: [
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-7, 19.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-7, -19.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-12.5, 15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-12.5, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-12.5, -15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(-12.5, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(7, 19.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(7, -19.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(12.5, 15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(12.5, 5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(12.5, -15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "glass_wall_10",
+                pos: v2.create(12.5, -5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_door_05",
+                pos: v2.create(2, 19.75),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "house_door_05",
+                pos: v2.create(-2, -19.75),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(-4.5, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(-7, 2.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(-7, -2.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(-4.5, -14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(4.5, 14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(7, 2.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(7, -2.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: randomObstacleType({ planter_06: 2, "": 1 }),
+                pos: v2.create(4.5, -14.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(-15, 11),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(-15, 7),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "sandbags_02",
+                pos: v2.create(15.5, -7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(19.5, -7),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "bunker_structure_08pu",
+                pos: v2.create(-9.5, -15.5),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    }),
     bunker_chrys_01: {
         type: "building",
         map: {
@@ -12131,6 +12373,210 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             },
             {
                 type: "bunker_chrys_compartment_03b",
+                pos: v2.create(43.5, 43),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    bunker_chrys_sublevel_01pu: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 1,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(
+                            v2.create(11, -12),
+                            v2.create(14.5, 9),
+                        ),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-chamber-floor-01a.img",
+                    pos: v2.create(0, 1.85),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-chrys-chamber-floor-01b.img",
+                    pos: v2.create(11, -10.75),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(11, -12),
+                        v2.create(14.5, 9),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-chamber-ceiling-01.img",
+                    pos: v2.create(11.5, -11),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5e574b,
+                },
+            ],
+        },
+        puzzle: {
+            name: "bunker_chrys_01pu",
+            completeUseType: "lab_door_chrys",
+            completeOffDelay: 1,
+            completeUseDelay: 2,
+            errorResetDelay: 1,
+            pieceResetDelay: 10,
+            sound: {
+                fail: "door_error_01",
+                complete: "none",
+            },
+        },
+        mapObjects: [
+            {
+                type: "concrete_wall_ext_6",
+                pos: v2.create(0, 4),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_26",
+                pos: v2.create(-3, -8.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_9",
+                pos: v2.create(3, 0),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_19",
+                pos: v2.create(14, -3),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_25",
+                pos: v2.create(11, -20),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(25, -5.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_8",
+                pos: v2.create(25, -17.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "locker_01",
+                pos: v2.create(4.5, -4.15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "locker_03",
+                pos: v2.create(8, -4.15),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(0.5, -16.5),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(12, -9.5),
+                scale: 0.8,
+                ori: 0,
+            },
+            {
+                type: "crate_01",
+                pos: v2.create(12, -13.5),
+                scale: 0.8,
+                ori: 0,
+            },
+            {
+                type: "couch_01",
+                pos: v2.create(15.5, -11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "screen_01",
+                pos: v2.create(23, -11.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "switch_01",
+                pos: v2.create(18.5, -4.25),
+                scale: 1,
+                ori: 0,
+                puzzlePiece: "ichi",
+            },
+            {
+                type: "switch_01",
+                pos: v2.create(21.5, -4.25),
+                scale: 1,
+                ori: 0,
+                puzzlePiece: "shi",
+            },
+            {
+                type: "switch_01",
+                pos: v2.create(18.5, -18.75),
+                scale: 1,
+                ori: 2,
+                puzzlePiece: "ni",
+            },
+            {
+                type: "switch_01",
+                pos: v2.create(21.5, -18.75),
+                scale: 1,
+                ori: 2,
+                puzzlePiece: "san",
+            },
+            {
+                type: "lab_door_chrys",
+                pos: v2.create(25.5, -9.5),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "bunker_chrys_compartment_01",
+                pos: v2.create(39.5, -6),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bunker_chrys_compartment_02pu",
+                pos: v2.create(43.5, 19),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "bunker_chrys_compartment_03pu",
                 pos: v2.create(43.5, 43),
                 scale: 1,
                 ori: 0,
@@ -12622,6 +13068,120 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             },
         ],
     },
+    bunker_chrys_compartment_02pu: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(10, 10)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-compartment-floor-02a.img",
+                    pos: v2.create(0, -2.75),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+                {
+                    sprite: "map-bunker-chrys-compartment-floor-02b.img",
+                    pos: v2.create(0, 9.75),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(10, 11),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-compartment-ceiling-02a.img",
+                    pos: v2.create(0, 8.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5e574b,
+                },
+                {
+                    sprite: "map-bunker-chrys-compartment-ceiling-02b.img",
+                    pos: v2.create(0, -2.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5e574b,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(-8, 6),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(8, 6),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_6",
+                pos: v2.create(-7.5, 10.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_6",
+                pos: v2.create(7.5, 10.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(-4, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(4, 12),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "glass_wall_12",
+                pos: v2.create(0, 5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "control_panel_06",
+                pos: v2.create(-8.5, 1.5),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "hardwood_wall_int_4",
+                pos: v2.create(0, 10.9),
+                scale: 1,
+                ori: 1,
+            },
+        ],
+    },
     bunker_chrys_compartment_02b: {
         type: "building",
         map: { display: false, color: 0x665a4e, scale: 1 },
@@ -13036,11 +13596,149 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             },
         ],
     },
+    bunker_chrys_compartment_03pu: {
+        type: "building",
+        map: { display: false, color: 0x665a4e, scale: 1 },
+        terrain: { grass: true, beach: false },
+        zIdx: 2,
+        floor: {
+            surfaces: [
+                {
+                    type: "bunker",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, -1), v2.create(10, 14)),
+                    ],
+                },
+                {
+                    type: "grass",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 11), v2.create(10, 4)),
+                        collider.createAabbExtents(v2.create(-7, -3), v2.create(3, 3)),
+                        collider.createAabbExtents(v2.create(8, -3), v2.create(2, 3)),
+                    ],
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-compartment-floor-03a.img",
+                    pos: v2.create(0, 0),
+                    scale: 0.5,
+                    alpha: 1,
+                    tint: 0xffffff,
+                },
+            ],
+        },
+        ceiling: {
+            zoomRegions: [
+                {
+                    zoomIn: collider.createAabbExtents(
+                        v2.create(0, 0),
+                        v2.create(10, 13),
+                    ),
+                },
+            ],
+            imgs: [
+                {
+                    sprite: "map-bunker-chrys-compartment-ceiling-03a.img",
+                    pos: v2.create(0, -9.5),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5e574b,
+                    rot: 0,
+                },
+                {
+                    sprite: "map-bunker-chrys-compartment-ceiling-03b.img",
+                    pos: v2.create(0, 3),
+                    scale: 1,
+                    alpha: 1,
+                    tint: 0x5e574b,
+                    rot: 0,
+                },
+            ],
+        },
+        mapObjects: [
+            {
+                type: "metal_wall_ext_thicker_5",
+                pos: v2.create(-7.5, -8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_5",
+                pos: v2.create(7.5, -8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(-11, -7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_4",
+                pos: v2.create(11, -7),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(-11.5, 4.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(11.5, 4.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "metal_wall_ext_thicker_20",
+                pos: v2.create(0, 13),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "case_03",
+                pos: v2.create(0, -5.5),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "wheel_03",
+                pos: v2.create(0, 9.1),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "wheel_03",
+                pos: v2.create(-7.6, 1),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "wheel_03",
+                pos: v2.create(7.6, 1),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "loot_tier_stonehammer",
+                pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
     bunker_structure_08: createBunkerChrys({
         bunkerType: "bunker_chrys_sublevel_01",
     }),
     bunker_structure_08b: createBunkerChrys({
         bunkerType: "bunker_chrys_sublevel_01b",
+    }),
+    bunker_structure_08pu: createBunkerChrys({
+        bunkerType: "bunker_chrys_sublevel_01pu",
     }),
     hedgehog_wall: createWall({
         material: "metal",
@@ -13133,6 +13831,24 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             },
         ],
         map: { displayType: "tree_01" },
+    }),
+    cache_02pu: createCache({
+        mapObjects: [
+            {
+                type: "tree_03pu",
+                pos: v2.create(0, 0),
+                scale: 0.9,
+                ori: 0,
+            },
+            {
+                type: "decal_initiative_01",
+                pos: v2.create(0, 0),
+                scale: 1.2,
+                ori: 0,
+                inheritOri: false,
+            },
+        ],
+        map: { displayType: "tree_01pu" },
     }),
     cache_02sv: createCache({
         mapObjects: [
@@ -15471,6 +16187,192 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
             {
                 type: "loot_tier_1",
                 pos: v2.create(0, 0),
+                scale: 1,
+                ori: 0,
+            },
+        ],
+    },
+    dead_town_01: {
+        type: "building",
+        map: { display: true, shapes: [] },
+        terrain: { grass: true, beach: false },
+        mapObstacleBounds: [
+            collider.createAabbExtents(v2.create(0, 0), v2.create(80, 125)),
+            collider.createAabbExtents(v2.create(0, 0), v2.create(20, 120)),
+            collider.createAabbExtents(v2.create(-75, 40), v2.create(10, 5)),
+        ],
+        mapGroundPatches: [
+            {
+                bound: collider.createAabbExtents(v2.create(0, 0), v2.create(75, 110)),
+                color: 0x1f1178,
+                roughness: 0.03,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(28, 0), v2.create(8, 110)),
+                color: 0x34196b,
+                roughness: 0.03,
+                offsetDist: 1,
+            },
+            {
+                bound: collider.createAabbExtents(v2.create(-20, -16), v2.create(55, 8)),
+                color: 0x34196b,
+                roughness: 0.03,
+                offsetDist: 1,
+            },
+        ],
+        floor: {
+            surfaces: [
+                {
+                    type: "sand",
+                    collision: [
+                        collider.createAabbExtents(v2.create(0, 0), v2.create(75, 110)),
+                    ],
+                },
+            ],
+            imgs: [],
+        },
+        ceiling: { zoomRegions: [], imgs: [] },
+        mapObjects: [
+            {
+                type: "club_complex_01",
+                pos: v2.create(-23, -70),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-65, -60),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(-55, -58),
+                scale: 1,
+                ori: 2,
+            },
+            {
+                type: "outhouse_01",
+                pos: v2.create(58, -86),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "house_red_01",
+                pos: v2.create(58, -60),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "teahouse_complex_01pu",
+                pos: v2.create(55, -10),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "mansion_structure_01",
+                pos: v2.create(-36, 25),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "house_red_02",
+                pos: v2.create(54, 32),
+                scale: 1,
+                ori: 1,
+            },
+            {
+                type: "cabin_01",
+                pos: v2.create(54, 71),
+                scale: 1,
+                ori: 3,
+            },
+            {
+                type: "bank_01pu",
+                pos: v2.create(-10, 80),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-34, 65),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-65, -45),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-3, -93),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-59, -84),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(60, 94),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(43, 102),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-64, 98),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "tree_01pu",
+                pos: v2.create(-68, 76),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(4, 8),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: "barrel_01",
+                pos: v2.create(2, 4),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_31: 1,
+                    chest_01: 0.1,
+                    chest_02: 0.01,
+                }),
+                pos: v2.create(10.9, 3),
+                scale: 1,
+                ori: 0,
+            },
+            {
+                type: randomObstacleType({
+                    crate_01: 1,
+                    crate_31: 1,
+                    chest_01: 0.1,
+                    chest_02: 0.01,
+                }),
+                pos: v2.create(10.5, 11),
                 scale: 1,
                 ori: 0,
             },
@@ -18133,6 +19035,7 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
     }),
     bank_01: createBank({ teamId: 1 }),
     bank_01b: createBank({ vault: "vault_01b" }),
+    bank_01pu: createBank({ vault: "vault_01pu"}),
     bank_01x: createBank({
         ceiling: {
             imgs: [
@@ -18215,6 +19118,10 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
     vault_01b: createBankVault({
         gold_box: 9,
         floor_loot: "loot_tier_stonehammer",
+    }),
+    vault_01pu: createBankVault({
+        gold_box: 3,
+        floor_loot: "loot_tier_katanas",
     }),
     police_wall_int_2: createWall({
         material: "wood",
@@ -20049,6 +20956,11 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
         grass_color: 0x629522,
         tree_small: "tree_08su",
         tree_large: "tree_08su",
+    }),
+    teahouse_complex_01pu: createTeaHouseComplex({
+        grass_color: 0x629522,
+        tree_small: "tree_01pu",
+        tree_large: "tree_01pu",
     }),
     savannah_patch_01: (function <T extends BuildingDef>(e: Partial<T>): T {
         const t = {
@@ -28097,6 +29009,12 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
         extents: v2.create(0.6, 2),
         img: wallImg("map-wall-04-stone.img", 0xffffff),
     }),
+    hardwood_wall_int_4: createWall({
+        material: "wood",
+        armorPlated: true,
+        extents: v2.create(0.6, 2),
+        img: wallImg("map-wall-04-stone.img", 0xff4444),
+    }),
     bunker_eye_sublevel_01: {
         type: "building",
         map: { display: false, color: 0x665a4e, scale: 1 },
@@ -29731,6 +30649,10 @@ export const MapObjectDefs: Record<string, MapObjectDef> = {
     loot_tier_stonehammer: {
         type: "loot_spawner",
         loot: [tierLoot("tier_stonehammer", 1, 1)],
+    },
+    loot_tier_katanas: {
+        type: "loot_spawner",
+        loot: [tierLoot("tier_katanas", 1, 1)],
     },
     loot_tier_sledgehammer: {
         type: "loot_spawner",

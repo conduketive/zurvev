@@ -207,6 +207,7 @@ export const GameConfig = {
                 "762mm": 0,
                 "556mm": 0,
                 "12gauge": 0,
+                "22lr": 0,
                 "50AE": 0,
                 "308sub": 0,
                 flare: 0,
@@ -318,6 +319,12 @@ export const GameConfig = {
             chambered: 0xff0000,
             apSaturated: 0x9f0000,
         },
+        "22lr": {
+            regular: 0xdddddd,
+            saturated: 0xddddee,
+            chambered: 0xddddff,
+            apSaturated: 0xddddff,
+        },
         "556mm": {
             regular: 0xa9ff92,
             saturated: 0xa9ff92,
@@ -392,6 +399,7 @@ export const GameConfig = {
         "762mm": [90, 180, 240, 300],
         "556mm": [90, 180, 240, 300],
         "12gauge": [15, 30, 60, 90],
+        "22lr": [150, 260, 350, 500],
         "50AE": [49, 98, 147, 196],
         "308sub": [10, 20, 40, 80],
         flare: [2, 4, 6, 8],

@@ -510,6 +510,21 @@ const AmmoDefs: Record<string, AmmoDef> = {
             pickup: "ammo_pickup_01",
         },
     },
+    "22lr": {
+        name: "22LR",
+        type: "ammo",
+        minStackSize: 15,
+        special: true,
+        lootImg: {
+            sprite: "loot-ammo-box.img",
+            scale: 0.2,
+            tint: 0xdddddf,
+            tintDark: 0xddddee,
+        },
+        sound: {
+            pickup: "ammo_pickup_01",
+        },
+    },
     "50AE": {
         name: ".50 AE",
         type: "ammo",
@@ -873,6 +888,28 @@ const SkinDefs = {
         lootImg: {
             sprite: "player-helmet-recon.img",
             scale: 0.3,
+            rot: 0.5 * Math.PI,
+        },
+    }),
+    helmet03_rg_recon: defineSkin("helmet03", {
+        name: "Scout King",
+        role: "scout_king",
+        mapIndicator: {
+            sprite: "player-king-scout.img",
+            tint: 0xe2e0,
+            pulse: true,
+            pulseTint: 0xc0c0,
+        },
+        skinImg: {
+            baseTint: 0xffffff,
+            baseTintRed: 0xffffff,
+            baseTintBlue: 0xffffff,
+            baseSprite: "player-helmet-recon.img",
+            spriteScale: 0.3,
+        },
+        lootImg: {
+            sprite: "player-helmet-recon.img",
+            scale: 0.2,
             rot: 0.5 * Math.PI,
         },
     }),

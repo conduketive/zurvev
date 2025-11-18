@@ -18,6 +18,7 @@ import { MainSpring } from "./maps/mainSpringDefs";
 import { MainSummer } from "./maps/mainSummerDefs";
 import { Potato } from "./maps/potatoDefs";
 import { PotatoSpring } from "./maps/potatoSpringDefs";
+import { Purplin } from "./maps/purplinDefs";
 import { Savannah } from "./maps/savannahDefs";
 import { Snow } from "./maps/snowDefs";
 import { testFaction, testNormal } from "./maps/testDefs";
@@ -42,7 +43,8 @@ export type Atlas =
     | "cobalt"
     | "savannah"
     | "turkey"
-    | "inferno";
+    | "inferno"
+    | "purplin";
 
 export const MapDefs = {
     main: Main,
@@ -76,6 +78,8 @@ export const MapDefs = {
     faction_halloween: FactionHalloween,
     cobalt_woods: cobaltWoods,
     comp_main: CompMain,
+
+    purplin:Purplin
 } satisfies Record<string, MapDef>;
 
 export interface MapDef {

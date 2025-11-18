@@ -28,6 +28,7 @@ const modes: Array<keyof typeof MapDefs> = [
     "gamerio",
     "inferno",
     "birthday",
+    "purplin",
 ];
 
 for (const mode of modes) {
