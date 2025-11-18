@@ -38,6 +38,8 @@ export interface ThrowableDef {
         sprite: string;
         scale: number;
         tint: number;
+        sprites?: string[];
+        frameRate?: number;
     };
     handImg?: Record<string, { right: Cook; left: Cook }>;
     useThrowParticles: boolean;
@@ -60,6 +62,7 @@ export interface ThrowableDef {
         width: number;
         alpha: number;
         tint: number;
+        sprite?: string;
     };
     fuseVariance?: number;
     numSplit?: number;
@@ -792,6 +795,64 @@ export const ThrowableDefs: Record<string, ThrowableDef> = {
             throwing: "frag_throw_01",
             pickup: "frag_pickup_01",
             deploy: "frag_deploy_01",
+        },
+    },
+    fire_shot: {
+        name: "Fire ball",
+        type: "throwable",
+        quality: 0,
+        explosionType: "explosion_fire",
+        inventoryOrder: 0,
+        noPotatoSwap: true,
+        cookable: true,
+        forceMaxThrowDistance: true,
+        explodeOnImpact: true,
+        destroyNonCollidables: true,
+        playerCollision: true,
+        fuseTime: 999,
+        aimDistance: 32,
+        rad: 1,
+        throwPhysics: {
+            playerVelMult: 0,
+            velZ: 1,
+            speed: 50,
+            spinVel: Math.PI * 9,
+            spinDrag: 1,
+            fixedCollisionHeight: 0.25,
+            randomizeSpinDir: true,
+        },
+        speed: {
+            equip: 0,
+            attack: 0,
+        },
+        lootImg: {
+            sprite: "loot-throwable-potato.img",
+            tint: 65280,
+            border: "loot-circle-outer-01.img",
+            borderTint: 0,
+            scale: 0.2,
+        },
+        worldImg: {
+            sprite: "part-fire-01.img",
+            scale: 0.3,
+            tint: 16777215,
+            sprites: ["part-fire-01.img", "part-fire-02.img", "part-fire-03.img"],
+            frameRate: 0.5,
+        },
+        handImg: {},
+        useThrowParticles: false,
+        sound: {
+            pullPin: "",
+            throwing: "frag_throw_01",
+            pickup: "frag_pickup_01",
+            deploy: "frag_deploy_01",
+        },
+        trail: {
+            maxLength: 40,
+            width: 0,
+            alpha: 1,
+            tint: 16777215,
+            sprite: "player-rainbow-trail.img",
         },
     },
 };

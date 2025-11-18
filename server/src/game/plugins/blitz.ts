@@ -1,5 +1,5 @@
 import { GameObjectDefs } from "../../../../shared/defs/gameObjectDefs";
-import { GunDef } from "../../../../shared/defs/gameObjects/gunDefs";
+import type { GunDef } from "../../../../shared/defs/gameObjects/gunDefs";
 import { UnlockDefs } from "../../../../shared/defs/gameObjects/unlockDefs";
 import { MapId } from "../../../../shared/defs/types/misc";
 import {
@@ -8,9 +8,10 @@ import {
     WeaponSlot,
 } from "../../../../shared/gameConfig";
 import { ObjectType } from "../../../../shared/net/objectSerializeFns";
+import { isItemInLoadout } from "../../../../shared/utils/loadout";
 import { Config } from "../../config";
 import type { Player } from "../objects/player";
-import { GamePlugin, PlayerDamageEvent } from "../pluginManager";
+import { GamePlugin, type PlayerDamageEvent } from "../pluginManager";
 
 const BACKPACK_LEVEL = 3;
 export function onPlayerJoin(data: Player) {
@@ -46,7 +47,7 @@ export function onPlayerJoin(data: Player) {
 
 export function onPlayerKill(data: Omit<PlayerDamageEvent, "amount">) {
     const perks = data.player.perks;
-    for ( const perk of perks) {
+    for (const perk of perks) {
         data.player.removePerk(perk.type);
     }
 
@@ -73,7 +74,7 @@ export function onPlayerKill(data: Omit<PlayerDamageEvent, "amount">) {
         const killer = data.source;
         if (killer.inventory["frag"] == 0) {
             killer.weapons[WeaponSlot.Throwable].type = "frag";
-        }   
+        }
         killer.invManager.give("frag", 2);
         killer.invManager.give("mirv", 1);
         killer.inventoryDirty = true;
@@ -94,7 +95,6 @@ export function onPlayerKill(data: Omit<PlayerDamageEvent, "amount">) {
         loadAmmo(WeaponSlot.Secondary);
     }
 }
-
 
 export default class DeathMatchPlugin extends GamePlugin {
     protected override initListeners(): void {

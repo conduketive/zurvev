@@ -1732,8 +1732,11 @@ export class Player extends BaseGameObject {
                         target.downedBy = undefined;
                         target.downedDamageTicker = 0;
                         target.health = GameConfig.player.reviveHealth;
-                        if (this.game.map.mapId === MapId.LocalMain && !this.game.isTeamMode) {
-                            target.health = GameConfig.player.health
+                        if (
+                            this.game.map.mapId === MapId.LocalMain &&
+                            !this.game.isTeamMode
+                        ) {
+                            target.health = GameConfig.player.health;
                         }
                         // checks 2 conditions in one, player has pan AND has it selected
                         if (target.weapons[target.curWeapIdx].type === "pan") {
@@ -2517,7 +2520,7 @@ export class Player extends BaseGameObject {
                     return true;
                 }
             }
-            
+
             // always send map events pings
             if (emote.isPing && emoteDef.type === "ping" && emoteDef.mapEvent) {
                 return true;
