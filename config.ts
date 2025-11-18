@@ -50,9 +50,9 @@ export function getConfig(isProduction: boolean, dir: string) {
         database: {
             enabled: true,
             host: "127.0.0.1",
-            user: "zurviv",
-            password: "zurviv",
-            database: "zurviv",
+            user: "survev",
+            password: "survev",
+            database: "survev",
             port: 5432,
         },
         oauthRedirectURI: "",

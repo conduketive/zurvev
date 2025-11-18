@@ -2063,6 +2063,24 @@ const ParticleDefs: Record<string, ParticleDef> = {
         },
         color: 0xc4a80a,
     },
+    fire_impact: {
+        image: ["part-potato-01.img"],
+        life: new Range(0.5, 1),
+        drag: new Range(0, 0),
+        rotVel: new Range(Math.PI * 0.25, Math.PI * 0.5),
+        scale: {
+            start: new Range(0.13, 0.23),
+            end: new Range(0.06, 0.14),
+            lerp: new Range(0, 1),
+        },
+        alpha: {
+            start: 1,
+            end: 0,
+            lerp: new Range(0.9, 1),
+        },
+        color: 16403715,
+    },
+
     airdropSmoke: {
         image: ["part-smoke-02.img", "part-smoke-03.img"],
         zOrd: 499,

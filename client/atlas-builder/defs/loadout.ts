@@ -614,6 +614,9 @@ export const LoadoutAtlas: AtlasDef = {
         "particles/part-takedown-01.svg",
         "particles/part-wedge-01.svg",
         "particles/part-woodchip-01.svg",
+        "particles/part-fire-01.svg",
+        "particles/part-fire-02.svg",
+        "particles/part-fire-03.svg",
         "player/player-armor-base-01.svg",
         "player/player-base-01.svg",
         "player/player-base-02.svg",
@@ -673,6 +676,8 @@ export const LoadoutAtlas: AtlasDef = {
         "loot/loot-weapon-m134.svg",
         "guns/gun-pkm-01.svg",
         "loot/loot-weapon-pkm-lmg.svg",
+        "guns/gun-m9a17-01.svg",
+        "loot/loot-weapon-m9A17.svg",
         // remove
         "player/player-hands-outfitFireball.svg",
         "player/player-accessory-outfitFireball.svg",
